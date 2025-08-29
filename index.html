@@ -1,0 +1,191 @@
+<!DOCTYPE html>  
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <style> 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .row::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+    [class*="col-"] {
+      float: left;
+      padding: 15px;
+    }
+
+    html {
+      font-family: "Lucida Sans", sans-serif;
+    }
+
+    /* Header */
+    .header {
+      background-color: #9933cc; /* original purple */
+      color: #ffffff;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header h1 {
+      font-size: 24px;
+    }
+
+    .header img {
+      height: 60px;
+    }
+
+    /* Menu */
+    .menu ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .menu li {
+      padding: 12px;
+      margin-bottom: 10px;
+      background-color: #33b5e5; /* original blue */
+      color: #ffffff;
+      text-align: center;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .menu li:hover {
+      background-color: #0099cc;
+    }
+
+    /* Content box */
+    .content {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 5px;
+      min-height: 300px;
+    }
+
+    .content section {
+      display: none;
+    }
+
+    .content section.active {
+      display: block;
+    }
+
+    .content h2 {
+      color: #9933cc; /* match header purple */
+      margin-bottom: 10px;
+    }
+
+    .content p, .content ul {
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    .content ul {
+      margin-left: 20px;
+      list-style-type: disc;
+    }
+
+    /* Responsive */
+    [class*="col-"] {
+      width: 100%;
+    }
+
+    @media only screen and (min-width: 768px) {
+      .col-3 {width: 25%;}
+      .col-9 {width: 75%;}
+    }
+ </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <h1>Ilocos Sur Polytechnic State College</h1>
+    <img src="images/ISPSC-logo.png" alt="ISPSC Logo">
+  </div>
+
+  <div class="row">
+
+    <!-- Sidebar Menu -->
+    <div class="col-3 menu">
+      <ul>
+        <li onclick="showSection('history')">History</li>
+        <li onclick="showSection('vision')">Vision</li>
+        <li onclick="showSection('mission')">Mission</li>
+        <li onclick="showSection('core')">Core Values</li>
+        <li onclick="showSection('goals')">Development Goals</li>
+      </ul>
+    </div>
+
+    <!-- Content -->
+    <div class="col-9 content">
+      <section id="history" class="active">
+        <h2>History</h2>
+        <p>
+          ISPSC is a comprehensive six-campus institution of higher learning mandated to give professional and technical training both in the undergraduate and graduate levels in the fields of economics, agriculture, fisheries, and industrial fields. It is also mandated to provide research, extension, and production services for the development of the Province of Ilocos Sur and the nation. The College has been existing for decades. The main campus is situated in Santa Maria, Ilocos Sur and the five other campuses are strategically located in Candon City, Narvacan, Santiago, Tagudin, and Sta. Cruz.
+        </p>
+      </section>
+
+      <section id="vision">
+        <h2>Vision</h2>
+        <p>UIP 2030: A smart globally competitive and responsive state university.</p>
+      </section>
+
+      <section id="mission">
+        <h2>Mission</h2>
+        <p>UIP is committed to producing globally competent and virtuous human resources, generating advanced knowledge, and developing innovative technologies for the sustainable development of society.</p>
+      </section>
+
+      <section id="core">
+        <h2>Core Values</h2>
+        <ul>
+          <li>Innovativeness</li>
+          <li>Motivation</li>
+          <li>Professionalism</li>
+          <li>Excellence</li>
+          <li>Transparency and Accountability</li>
+          <li>Unity and Teamwork</li>
+          <li>Sustainability</li>
+        </ul>
+      </section>
+
+      <section id="goals">
+        <h2>Development Goals: ONWARDS UIP</h2>
+        <ul>
+          <li><b>O</b>ptimize institutional quality and reputation.</li>
+          <li><b>N</b>urture excellence in academics and services.</li>
+          <li><b>W</b>iden research, development, and innovation programs.</li>
+          <li><b>A</b>dvance responsive extension services and vibrant external linkages.</li>
+          <li><b>R</b>evitalize capacity for resource management and generation.</li>
+          <li><b>D</b>evelop capability and competence of human resources.</li>
+          <li><b>S</b>ustain ethical leadership and good governance.</li>
+          <li><b>U</b>nderscore advocacies for sustainable development.</li>
+          <li><b>I</b>ntensify internationalization initiatives.</li>
+          <li><b>P</b>romote modernization of physical and digital infrastructure.</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll(".content section").forEach(sec => {
+        sec.classList.remove("active");
+      });
+      document.getElementById(id).classList.add("active");
+    }
+  </script>
+</body>
+</html>
